@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 const app = express();
 
-const logger = require('./logs/logger');
+const logger = require('./logging/logger');
 const staticFileMiddleware = require('./files/staticFileMiddleware');
 const apiRouter = require('./routes/apiRouter');
 const errorMiddleware = require('./errors/errorMiddleware');
