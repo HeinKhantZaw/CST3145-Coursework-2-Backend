@@ -1,5 +1,7 @@
+const dotenv = require("dotenv");
+dotenv.config();
 const { MongoClient } = require("mongodb");
-const ATLAS_CONNECTION_URL = "mongodb+srv://admin:mcoMSVq04xnGziwn@cluster0.iss3nt5.mongodb.net/?retryWrites=true&w=majority";
+const ATLAS_CONNECTION_URL = `mongodb+srv://${process.env.MONGO_CREDS}@cluster0.iss3nt5.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(ATLAS_CONNECTION_URL);
 
 const init = async () => {
