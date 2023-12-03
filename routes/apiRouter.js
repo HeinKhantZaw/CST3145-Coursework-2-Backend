@@ -76,16 +76,22 @@ api.put("/lessons/:id", connectDB, async (req, res, next) => {
 api.get("/lessons/filter", connectDB, async (req, res, next) => {
     try {
         const collection = req.dbClient.db("CST3145").collection("Lessons");
+
+        // search query
         const search = req.query.search || "";
-        const sortBy = req.query.sortBy || "";
-        const sortOrder = req.query.sortOrder === "dsc" ? -1 : 1;
-        const query = search ? {
+        const searchQuery = search ? {
             $or: [
                 {'Subject': {$regex: search, $options: "i"}},
                 {'Location': {$regex: search, $options: "i"}}
             ]
         } : {};
-        const results = await collection.find(query).sort({[sortBy]: sortOrder}).toArray();
+
+        // sort query
+        const sortBy = req.query.sortBy || "";
+        const sortOrder = req.query.sortOrder === "dsc" ? -1 : 1;
+        const sortQuery = sortBy && sortOrder ? {[sortBy]: sortOrder} : {};
+
+        const results = await collection.find(searchQuery).sort(sortQuery).toArray();
         res.json(results);
     } catch (e) {
         next(e);

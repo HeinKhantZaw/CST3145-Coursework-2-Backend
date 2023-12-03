@@ -6,6 +6,6 @@ const imagesDirectory = path.resolve(__dirname, '../images');
 
 const imagesMiddleware = express.static(imagesDirectory);
 
-staticFileMiddleware.use('/images', imagesMiddleware);
+staticFileMiddleware.use('/api/images', imagesMiddleware);
 
 module.exports = staticFileMiddleware;
