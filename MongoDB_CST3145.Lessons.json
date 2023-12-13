@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "654a6f9ffde9d243663645b3"
+  },
+  "Subject": "Mathematics",
+  "Location": "Room 101",
+  "Price": 50,
+  "Spaces": 5
+},
+{
+  "_id": {
+    "$oid": "654a6f9ffde9d243663645b4"
+  },
+  "Subject": "Science",
+  "Location": "Room 202",
+  "Price": 45,
+  "Spaces": 5
+},
+{
+  "_id": {
+    "$oid": "654a6f9ffde9d243663645b5"
+  },
+  "Subject": "English Grammar",
+  "Location": "Room 103",
+  "Price": 40,
+  "Spaces": 5
+},
+{
+  "_id": {
+    "$oid": "654a6f9ffde9d243663645b6"
+  },
+  "Subject": "History",
+  "Location": "Room 105",
+  "Price": 35,
+  "Spaces": 5
+},
+{
+  "_id": {
+    "$oid": "654a6f9ffde9d243663645b7"
+  },
+  "Subject": "Chemistry",
+  "Location": "Room 203",
+  "Price": 50,
+  "Spaces": 5
+},
+{
+  "_id": {
+    "$oid": "654a6f9ffde9d243663645b8"
+  },
+  "Subject": "Biology",
+  "Location": "Room 204",
+  "Price": 45,
+  "Spaces": 5
+},
+{
+  "_id": {
+    "$oid": "654a6f9ffde9d243663645b9"
+  },
+  "Subject": "CS",
+  "Location": "Computer Lab",
+  "Price": 40,
+  "Spaces": 5
+},
+{
+  "_id": {
+    "$oid": "654a6f9ffde9d243663645ba"
+  },
+  "Subject": "Advanced Algebra",
+  "Location": "Room 106",
+  "Price": 55,
+  "Spaces": 5
+},
+{
+  "_id": {
+    "$oid": "654a6f9ffde9d243663645bb"
+  },
+  "Subject": "English",
+  "Location": "Room 104",
+  "Price": 40,
+  "Spaces": 5
+},
+{
+  "_id": {
+    "$oid": "654a6f9ffde9d243663645bc"
+  },
+  "Subject": "Physics",
+  "Location": "Room 205",
+  "Price": 45,
+  "Spaces": 5
+}]

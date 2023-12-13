@@ -1,0 +1,266 @@
+{
+  "info": {
+    "_postman_id": "24b4bb87-a693-4f41-8e00-4a7eeb254e45",
+    "name": "REST API for CST3145",
+    "description": "This is the postman collection of API requests for CST3145 CW2",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "23230654"
+  },
+  "item": [
+    {
+      "name": "Get StaticFiles",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}images/cs.jpg",
+          "host": [
+            "{{base_url}}images"
+          ],
+          "path": [
+            "cs.jpg"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Lessons",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}api/lessons",
+          "host": [
+            "{{base_url}}api"
+          ],
+          "path": [
+            "lessons"
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": []
+    },
+    {
+      "name": "Search Lessons",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}api/lessons/filter?search=Mat",
+          "host": [
+            "{{base_url}}api"
+          ],
+          "path": [
+            "lessons",
+            "filter"
+          ],
+          "query": [
+            {
+              "key": "search",
+              "value": "Mat"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Sort Lessons",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}api/lessons/filter?sortBy=Price&sortOrder=dsc",
+          "host": [
+            "{{base_url}}api"
+          ],
+          "path": [
+            "lessons",
+            "filter"
+          ],
+          "query": [
+            {
+              "key": "sortBy",
+              "value": "Price"
+            },
+            {
+              "key": "sortOrder",
+              "value": "dsc"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search and Sort Lessons",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}api/lessons/filter?search=Room&sortBy=Subject&sortOrder=asc",
+          "host": [
+            "{{base_url}}api"
+          ],
+          "path": [
+            "lessons",
+            "filter"
+          ],
+          "query": [
+            {
+              "key": "search",
+              "value": "Room"
+            },
+            {
+              "key": "sortBy",
+              "value": "Subject"
+            },
+            {
+              "key": "sortOrder",
+              "value": "asc"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Lesson Detail",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Successful PUT request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"_id\": \"654a6f9ffde9d243663645ba\",\n  \"Spaces\": 3\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}api/lessons/654a6f9ffde9d243663645ba",
+          "host": [
+            "{{base_url}}api"
+          ],
+          "path": [
+            "lessons",
+            "654a6f9ffde9d243663645ba"
+          ]
+        },
+        "description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+      },
+      "response": []
+    },
+    {
+      "name": "Post Order",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"cart\": [\n        {\n            \"_id\": \"654a6f9ffde9d243663645b8\",\n            \"Subject\": \"Biology\",\n            \"amount\": 3\n        },\n        {\n            \"_id\": \"654a6f9ffde9d243663645b9\",\n            \"Subject\": \"CS\",\n            \"amount\": 2\n        }\n    ],\n    \"name\": \"tester\",\n    \"phone\": \"09032034\"\n}\n\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}api/order",
+          "host": [
+            "{{base_url}}api"
+          ],
+          "path": [
+            "order"
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": []
+    },
+    {
+      "name": "404 Not Found",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}",
+          "host": [
+            "{{base_url}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://vue-env.eba-knuwpbba.eu-west-2.elasticbeanstalk.com/"
+    }
+  ]
+}
