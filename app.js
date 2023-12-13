@@ -28,7 +28,7 @@ app.use((request, response, next) => {
 
 app.use(logger);
 
-app.use("/api", staticFileMiddleware);
+app.use("/", staticFileMiddleware);
 
 app.use("/api", apiRouter);
 
