@@ -73,12 +73,12 @@ api.put("/lessons/:id", connectDB, async (req, res, next) => {
 });
 
 // search and sort lessons
-api.get("/lessons/filter", connectDB, async (req, res, next) => {
+api.get("/search", connectDB, async (req, res, next) => {
     try {
         const collection = req.dbClient.db("CST3145").collection("Lessons");
 
         // search query
-        const search = req.query.search || "";
+        const search = req.query.query || "";
         const searchQuery = search ? {
             $or: [
                 {'Subject': {$regex: search, $options: "i"}},
